@@ -9,6 +9,8 @@ const cors = require("cors");
 // Local Modules
 const connectDB = require("./config/database");
 const errorController = require("./controllers/errorController");
+const authRouter = require("./routes/authRouter");
+const loggerMiddleware = require("./middlewares/loggerMiddleware");
 
 // Init App
 const app = express();
@@ -19,7 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Local Middlewares
+app.use(loggerMiddleware);
 
+// API Routes Middleware
+app.use("/api/auth", authRouter)
 
 
 // 404 Middleware

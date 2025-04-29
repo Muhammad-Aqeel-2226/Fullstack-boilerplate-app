@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "boilerplate-app",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -25,7 +25,6 @@
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^6.16.0",
     "mongoose": "^8.13.2",
-    "multer": "^1.4.5-lts.2",
-    "penpal": "file:.."
+    "multer": "^1.4.5-lts.2"
   }
 }

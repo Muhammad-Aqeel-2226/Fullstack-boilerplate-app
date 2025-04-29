@@ -1,5 +1,7 @@
 # 🖋️ Boilerplate app – Root Setup Guide
 
+# Before anything else go to package.json files and change name of your app
+
 This is a **boilerplate MERN stack application**, designed with modern tooling and best practices.
 
 ### 🚀 Technologies Used:
@@ -65,6 +67,8 @@ This script is especially useful when someone **clones the repo** and wants to g
 | `package.json` (root) | ❌ No               | Needed to run full-stack dev, bootstrap, and keep things unified       |
 | `bootstrap.js`        | ✅ Optional         | Not required to run the app, but really helpful for quick setup       |
 | `.gitignore`          | ❌ No               | Keeps your repo clean and secure from `node_modules`, `.env`, etc.    |
+
+# NOTE: The files in the root directory/folder, except for the 'server' and 'client' folders, are only for development not for production.
 
 ---
 
