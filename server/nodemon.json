@@ -1,0 +1,6 @@
+{
+  "watch": ["."],
+  "ext": "ts,json,js",
+  "igore": ["node_modules/"],
+  "exec": "node server.js"
+}

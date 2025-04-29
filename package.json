@@ -1,0 +1,13 @@
+{
+  "name": "penpal",
+  "version": "1.0.0",
+  "scripts": {
+    "bootstrap": "node bootstrap.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
