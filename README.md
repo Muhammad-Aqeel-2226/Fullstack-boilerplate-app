@@ -68,7 +68,7 @@ This script is especially useful when someone **clones the repo** and wants to g
 | `bootstrap.js`        | ✅ Optional         | Not required to run the app, but really helpful for quick setup       |
 | `.gitignore`          | ❌ No               | Keeps your repo clean and secure from `node_modules`, `.env`, etc.    |
 
-# NOTE: The files in the root directory/folder, except for the 'server' and 'client' folders, are only for development not for production.
+NOTE: The files in the root directory/folder, except for the 'server' and 'client' folders, are only for development not for production.
 
 ---
 
