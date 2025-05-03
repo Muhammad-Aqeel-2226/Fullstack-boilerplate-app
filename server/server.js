@@ -5,9 +5,11 @@ require("dotenv").config();
 // External Modules
 const express = require("express");
 const cors = require("cors");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 // Local Modules
-const connectDB = require("./config/database");
+const { connectDB, dbURI } = require("./config/database");
 const errorController = require("./controllers/errorController");
 const authRouter = require("./routes/authRouter");
 const loggerMiddleware = require("./middlewares/loggerMiddleware");
@@ -16,16 +18,36 @@ const loggerMiddleware = require("./middlewares/loggerMiddleware");
 const app = express();
 
 // External Middlewares
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
-// Local Middlewares
-app.use(loggerMiddleware);
+// Session Store
+const store = new MongoDBStore({
+  uri: dbURI,
+  collection: "sessions",
+});
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+  })
+);
+
+// Custom Middlewares
+app.use(loggerMiddleware)
 
 // API Routes Middleware
-app.use("/api/auth", authRouter)
-
+app.use("/api/auth", authRouter);
 
 // 404 Middleware
 app.use(errorController.pageNotFound);
